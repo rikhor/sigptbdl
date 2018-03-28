@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Sistem Informasi Geografis Pemetaan Perguruan Tinggi di Kota Bandar Lampung</title>
+        <style>
+            #map {
+                background-color: grey;
+                width: 100%;
+                height: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+    </body>
+    <script>
+function initMap() {
+
+  var map = new google.maps.Map(document.getElementById('map'), {zoom: 9,center: {lat: -5.397836, lng: 105.266422}
+  });
+  var infoWin = new google.maps.InfoWindow();
+  // Add some markers to the map.
+  // Note: The code uses the JavaScript Array.prototype.map() method to
+  // create an array of markers based on a given "locations" array.
+  // The map() method here has nothing to do with the Google Maps API.
+  var markers = locations.map(function(location, i) {
+    var marker = new google.maps.Marker({
+      position: location
+    });
+    google.maps.event.addListener(marker, 'click', function(evt) {
+      infoWin.setContent(location.info);
+      infoWin.open(map, marker);
+    })
+    return marker;
+  });
+
+  // Add a marker clusterer to manage the markers.
+  var markerCluster = new MarkerClusterer(map, markers, {
+    imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+  });
+
+}
+var locations = [
+        {lat: -5.3645458, lng: 105.2433216, info : "Universitas Lampung,Jl Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng"},
+        {lat: -5.3818398, lng: 105.3105262, info : "UIN Radin Intan Jl Letkol H Endro Suratmin"},
+        {lat: -5.358378, lng: 105.3134384, info : "Institut Teknologi Sumatera,Jl Terusan Ryacudu"},
+        {lat: -5.358532, lng: 105.230266, info : "Politeknik Negeri Lampung,Jl Soekarno Hatta"},
+        {lat: -5.358532, lng: 105.2302552, info : "Poltekkes Tanjung Karang,Jl Soekarno Hatta"},
+        {lat: -5.3598389, lng: 105.2318418, info : "UPBJJ-UT Bandar Lampung ,JL soekarno Hatta"},
+        {lat: -5.3785417, lng: 105.2196441, info : "Universitas Malahayati,JL Pramuka "},
+        {lat: -5.372963, lng: 105.2391828, info : "Perguruan Tinggi Mitra Lampung,Jl ZA Pagaralam "},
+        {lat: -5.3774046, lng: 105.2474722, info : "Institut Informatika Dan Bisnis Darmajaya,Jl Zainal Abidin Pagar Alam "},
+        {lat: -5.3795338, lng: 105.2495105, info : "Universitas Bandar Lampung,Jl Zainal Abidin Pagar Alam "},
+        {lat: -5.3775965, lng: 105.2525254, info : "Universitas Muhammadiyah Lampung, Jalan Zainal Abidin Pagar Alam "},
+        {lat: -5.382463, lng: 105.2566627, info : "Teknokrat University, Labuhan Ratu  "},
+        {lat: -5.3756191, lng: 105.2483519, info : "Akper Akbid Panca Bhakti, Jalan Zainal Abidin Pagar Alam  "},
+        {lat: -5.37725, lng: 105.2455969, info : "STIE Gentiaras, Gang Cengkeh, Gedong Meneng  "},
+        {lat: -5.3927846, lng: 105.2303958, info : "Universitas Saburai, Langkapura  "},
+        {lat: -5.4201099, lng: 105.2448731, info : "PGRI STKIP Bandar Lampung, Jalan Khairil Anwar  "},
+        {lat: -5.4168875, lng: 105.2679648, info : "Universitas Tulang Bawang, Jalan Gajah Mada  "},
+        {lat: -5.375913, lng: 105.248177, info : "ATRO Patriot Bangsa, Jalan Zainal Abidin Pagar Alam  "},
+        {lat: -5.3595923, lng: 105.2330066, info : "Akademi Kebidanan Adila, Jalan Soekarno - Hatta  "},
+        {lat: -5.413637, lng: 105.255978, info : "Amik Master Lampung, Tanjung Karang  "},
+        {lat: -5.3684163, lng: 105.2545969, info : "sekolah teknik in der Nähe von Jalan Nusantara VIII, Labuhan Ratu "},
+        {lat: -5.4189042, lng: 105.2474335, info : "DCC Bandar Lampung, Jalan Cut Nyak Dien  "},];
+        
+
+
+google.maps.event.addDomListener(window, "load", initMap);
+
+   </script>
+
+<script async defer 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2-gCXyFtSC55MwOWu4PkmB8pXgQQu5yA&callback=initMap"></script>
+<script src="src/markerclusterer.js">
+</script>
+</html>
