@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="menu.css"></link>
+    <link rel="stylesheet" type="text/css" href="popup.css"></link>
+    <link rel="stylesheet" type="text/css" href="updatewarnadirection.css"/>
+  <head>
+    <link rel="shortcut icon" href="campus.png"/>
+    <title>SIG Perguruan Tinggi di Kota Bandar Lampung</title>
+    <style>
+      #map {
+        height: 100%;
+        background-color: #fff;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        right: 25%;
+        z-index: 5;
+        background-color: white;
+        padding: 5px;
+        border: 1px solid darkcyan;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-right: 10px;
+      }
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-right: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 50%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        height: 50%;
+        float: right;
+        width: 390px;
+        overflow: auto;
+      }
+      #map {
+        margin-right: 300px;
+      }
+      #floating-panel {
+        background: white;
+        padding: 5px;
+        font-size: 14px;
+        font-family: Arial;
+        border: 1px solid darkcyan;
+        box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+        display: none;
+      }
+      @media print {
+        #map {
+          height: 500px;
+          margin: 0;
+        }
+        #right-panel {
+          float: none;
+          width: auto;
+        }
+      }
+      #floating-panell {
+        position:right;
+        top: 10px;
+        right: 25%;
+        z-index: 5;
+        background-color: darkcyan;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-right: 10px;
+      }
+      .footer {
+                width:auto;
+                height: 10px;
+                background-color:darkcyan;
+                color:white;
+                padding:20px;
+      }
+    </style>
+  </head>
+    <body>
+        <h2 class="tengah"><img src="campus.png" alt="Foto" height="100" width="105"><br>
+        <font face="berlian sans fb">Sistem Informasi Geografis Perguruan Tinggi di Kota Bandar Lampung</font></h2>
+    </body>
+
+  <div class="konten"></div>
+        <ul class="navbar">
+            <center><b><li class="active"><a href="sigptbdl.html">HOME</a></li>
+    
+            <li class="dropdown">
+                <a href="sebaran_perguruantinggi.html" class="btndown">SEBARAN PERGURUAN TINGGI</a></li>
+    
+            <li class="dropdown">
+                <a href="TOP5Universitas.html" class="btndown">TOP 5 UNIVERSITAS</a></li>
+            
+            <li class="dropdown">
+                <a href="perguruantingginegeri.html" class="btndown">PERGURUAN TINGGI NEGERI</a></li>
+                
+            <li class="dropdown">
+                <a href="perguruantinggiswasta.html" class="btndown">PERGURUAN TINGGI SWASTA</a></li>
+
+                <li class="dropdown">
+                  <a href="#" class="btndown">IMAGE OVERLAY</a>
+                  <ul class="itemdown">
+                      <a href="unila.html">Universitas Lampung</a>
+                      <a href="uin.html">UIN Raden Intan Lampung</a>
+                      <a href="polinela.html">Polinela</a>
+                      <a href="poltekkes.html">Poltekkes</a>
+                      <a href="#">UPBJJ Universitas Terbuka</a>
+                      <a href="malahayati.html">Universitas Malahayati</a>
+                      <a href="mitra.html">Perguruan Tinggi Mitra Lampung</a>
+                      <a href="darmajaya.html">IBI Darmajaya</a>
+                      <a href="ubl.html">Universitas Bandar Lampung</a>
+                      <a href="muhammadiyah.html">Universitas Muhammadiyah</a>
+                      <a href="tekno.html">Perguruan Tinggi Teknokrat</a>
+                      <a href="#">Akper dan Akbdid Panca Bhakti</a>
+                      <a href="#">STIE Gentiaras</a>
+                      <a href="saburai.html">Universitas Saburai</a>
+                      <a href="stkippgri.html">STKIP PGRI</a>
+                      <a href="utb.html">Universitas Tulang Bawang</a>
+                      <a href="#">ATRO PATRIOT Bangsa Lampung</a>
+                      <a href="#">Akademi Kebidanan Adila</a>
+                      <a href="#">AMIK Master Lampung</a>
+                      <a href="#">Perguruan Tinggi Swasta Satu Nusa</a>
+                      <a href="dcc.html">Perguruan Tinggi Dian Cipta Cendikia</a>
+                  </ul>
+
+            <li class="dropdown">
+                <a href="sigptbdl_direction.html" class="btndown">PETUNJUK JALAN</a></li>
+
+            <li class="dropdown">
+                <a href="kontak.html" class="btndown">KONTAK</a></li>
+    
+            </center>
+            </ul></b>
+            </div>
+  <body>
+        <div id="floating-panel">
+                <strong>Start:</strong>
+                <select id="start">
+                  <option value="Jl Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng">UNIVERSITAS LAMPUNG</option>
+                <option value="Jl ZA Pagar Alam No. 14 Bandar Lampung">UNIVERSITAS MUHAMMADIYAH LAMPUNG</option>
+                  <option value="Jl. Soekarno Hatta No. 6, Raja Basa, Bandar Lampung">Poltekkes Tanjung Karang</option>
+                  <option value="Jl. Soekarno Hatta No. 10, Raja Basa, Bandar Lampung">Polinela</option>
+                  <option value="Jalan Soekarno Hatta Nomor 108B Rajabasa, Bandar Lampung ">UPBJJ UT Bandar Lampung</option>
+                  <option value="Jalan Letkol H. Endro Suratmin, Sukarame, Bandar Lampung">UIN Raden Intan</option>
+                  <option value="Jalan Pramuka Nomor 27, Kemiling, Bandar Lampung">Universitas Malahayati</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 7, Gedong Meneng, Bandar Lampung">Perguruan Tinggi Umitra</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 93, Labuhan Ratu, Bandar Lampung">IBI Darmajaya</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 89, Labuhan Ratu, Bandar Lampung">UBL (Universitas Bandar Lampung)</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 9, Labuhan Ratu, Bandar Lampung">Perguruan Tinggi Teknokrat</option>
+                  <option value="Jalan ZA Pagar Alam, Pelita I 24B, Labuhan Ratu, Bandar Lampung">Akademi Akuntansi Lampung</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 14, Gedong Meneng, Bandar Lampung">Akper Panca Bhakti</option>
+                  <option value="Jalan Purnawirawan Nomor 14, Gedung Meneng, Bandar Lampung">STIE Gentiaras</option>
+                  <option value="Jalan Imam Bonjol Nomor 486, Langkapura, Bandar Lampung">Universitas Saburai</option>
+                  <option value="Jalan Chairil Anwar Nomor 79, Durian Payung, Tanjung Karang Pusat, Bandar Lampung">STKIP PGRI Bandar Lampung</option>
+                  <option value="Jalan Gajah Mada Nomor 34 Bandar Lampung">Universitas Tulang Bawang (UTB)</option>
+                  <option value="Jalan Cut Nyak Dien, Tanjung Karang Pusat, Bandar Lampung">AMIK Master Lampung</option>
+                </select>
+                <br>
+                <strong>End:</strong>
+                <select id="end">
+                  <option value="Jl Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng">UNIVERSITAS LAMPUNG</option>
+                <option value="Jl ZA Pagar Alam No. 14 Bandar Lampung">UNIVERSITAS MUHAMMADIYAH LAMPUNG</option>
+                  <option value="Jl. Soekarno Hatta No. 6, Raja Basa, Bandar Lampung">Poltekkes Tanjung Karang</option>
+                  <option value="Jl. Soekarno Hatta No. 10, Raja Basa, Bandar Lampung">Polinela</option>
+                  <option value="Jalan Soekarno Hatta Nomor 108B Rajabasa, Bandar Lampung ">UPBJJ UT Bandar Lampung</option>
+                  <option value="Jalan Letkol H. Endro Suratmin, Sukarame, Bandar Lampung">UIN Raden Intan</option>
+                  <option value="Jalan Pramuka Nomor 27, Kemiling, Bandar Lampung">Universitas Malahayati</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 7, Gedong Meneng, Bandar Lampung">Perguruan Tinggi Umitra</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 93, Labuhan Ratu, Bandar Lampung">IBI Darmajaya</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 89, Labuhan Ratu, Bandar Lampung">UBL (Universitas Bandar Lampung)</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 9, Labuhan Ratu, Bandar Lampung">Perguruan Tinggi Teknokrat</option>
+                  <option value="Jalan ZA Pagar Alam, Pelita I 24B, Labuhan Ratu, Bandar Lampung">Akademi Akuntansi Lampung</option>
+                  <option value="Jalan ZA Pagar Alam Nomor 14, Gedong Meneng, Bandar Lampung">Akper Panca Bhakti</option>
+                  <option value="Jalan Purnawirawan Nomor 14, Gedung Meneng, Bandar Lampung">STIE Gentiaras</option>
+                  <option value="Jalan Imam Bonjol Nomor 486, Langkapura, Bandar Lampung">Universitas Saburai</option>
+                  <option value="Jalan Chairil Anwar Nomor 79, Durian Payung, Tanjung Karang Pusat, Bandar Lampung">STKIP PGRI Bandar Lampung</option>
+                  <option value="Jalan Gajah Mada Nomor 34 Bandar Lampung">Universitas Tulang Bawang (UTB)</option>
+                  <option value="Jalan Cut Nyak Dien, Tanjung Karang Pusat, Bandar Lampung">AMIK Master Lampung</option>
+                </select>
+    </div>
+    <div id="floating-panell">
+            <b><font  color= "white">Mode Perjalanan</b></font>
+            <select id="mode">
+              <option value="DRIVING">Naik Mobil</option>
+              <option value="WALKING">Jalan Kaki</option>
+            </select>
+            </div>
+    <div id="right-panel"></div>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat:-5.375130, lng:105.253640}
+        });
+        directionsDisplay.setMap(map);
+        directionsDisplay.setPanel(document.getElementById('right-panel'));
+
+        
+
+        var control = document.getElementById('floating-panel');
+        control.style.display = 'block';
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+
+        var onChangeHandler = function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        };
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        document.getElementById('mode').addEventListener('change', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+        document.getElementById('start').addEventListener('change', onChangeHandler);
+        document.getElementById('end').addEventListener('change', onChangeHandler);
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var start = document.getElementById('start').value;
+        var end = document.getElementById('end').value;
+        var selectedMode = document.getElementById('mode').value;
+        directionsService.route({
+          origin: start,
+          destination: end,
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
+    </script>
+    <div class="container"><br>
+        <center>
+            <small><b>Copyright &copy; SIG 2018 | Riko Rahardiansyah 1657051028 - Hafidza Anindita W 1617051110 - Hartsa Hanifah 1617051029</b></small>
+        </center><br>
+    </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAICvEJEVcEqp6JxtFoP8YsvaCZ5lRjl-s&callback=initMap&language=in&region=ID"></script>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width"> 
+  <title>Sistem Informasi Geografis Potensi Bencana Alam di Bandar Lampung</title> 
+  <link rel="stylesheet" type="text/css" href="desaign.css">
+</head>
+
+<body>
+<body bgcolor= #556B2F>
+<center><font size="100" face="Century Gothic">SIG Bencana Alam di Bandar Lampung</font></center>
+<div class="menu">
+        <ul><table><nav >
+        <div class="warna">
+        <center><a href="utama.html">Halaman Utama</a></font> |<a href="contacus.html">Contact Us</a> | <a href="kedua.html">View Polygon</a>| </center> <br>
+        <center> <a href="potensibanjir.html">Potensi Banjir</a> |<a href="potensitsunami.html">Potensi Tsunami</a> |<a href="potensilongsor.html">Potensi Longsor</a> |<a href="potensigempabumi.html"> Potensi Gempa Bumi</a> |</center> <br>
+        <p></p>
+        </div>
+        </nav></table></ul>
+    </div>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+
+<body> 
+	<div id="kotak">
+		<div id="map" style="width:100%;height:400px;"></div>
+		</form>
+	</div>   
+</body> 
+
+<script>
+
+function initialize(){
+	var mapOptions = {
+		zoom:9,
+		center: new google.maps.LatLng(-5.4284046, 105.2006967),
+	};
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	
+	infoWindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow();
+	
+	var contentString;
+	infowindow.setContent(contentString);
+  
+	var marker = new google.maps.Marker();
+	marker.addListener('click',function(){
+		infowindow.open(map,marker);
+  ``});
+	marker.setMap(map);
+	
+	var infoWin = new google.maps.InfoWindow();
+    var labels = 'Bandar Lampung';
+        
+    var markers = locations.map(function(location, i) {
+        var marker = new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+		google.maps.event.addListener(marker, 'click', function(evt) {
+			infoWin.setContent(location.info);
+			infoWin.open(map, marker);
+		})
+		return marker;
+    }); 
+    
+	console.log(locations);
+    console.log(markers);
+
+    var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'images/m'});
+        
+    var d = markerCluster.distanceBetweenPoints_(markers[2].getPosition(),markers[4].getPosition());
+    console.log(markerCluster.getCalculator());
+
+	
+
+    }
+	
+	function showArrays(event) {
+		var vertices = this.getPath();
+		var contentString = '<b>' + this.name + '</b>';
+		infoWindow.setPosition(event.latLng);
+		infoWindow.setContent(contentString);
+		infoWindow.open(map);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+     var locations = [
+     {lat: -5.3645458, lng: 105.2433216, info : "Universitas Lampung,Jl Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng"},
+        {lat: -5.3818398, lng: 105.3105262, info : "UIN Radin Intan Jl Letkol H Endro Suratmin"},
+        {lat: -5.358378, lng: 105.3134384, info : "Institut Teknologi Sumatera,Jl Terusan Ryacudu"},
+        {lat: -5.358532, lng: 105.230266, info : "Politeknik Negeri Lampung,Jl Soekarno Hatta"},
+        {lat: -5.358532, lng: 105.2302552, info : "Poltekkes Tanjung Karang,Jl Soekarno Hatta"},
+        {lat: -5.3598389, lng: 105.2318418, info : "UPBJJ-UT Bandar Lampung ,JL soekarno Hatta"},
+        {lat: -5.3785417, lng: 105.2196441, info : "Universitas Malahayati,JL Pramuka "},
+        {lat: -5.372963, lng: 105.2391828, info : "Perguruan Tinggi Mitra Lampung,Jl ZA Pagaralam "},
+        {lat: -5.3774046, lng: 105.2474722, info : "Institut Informatika Dan Bisnis Darmajaya,Jl Zainal Abidin Pagar Alam "},
+        {lat: -5.3795338, lng: 105.2495105, info : "Universitas Bandar Lampung,Jl Zainal Abidin Pagar Alam "},
+        {lat: -5.3775965, lng: 105.2525254, info : "Universitas Muhammadiyah Lampung, Jalan Zainal Abidin Pagar Alam "},
+        {lat: -5.382463, lng: 105.2566627, info : "Teknokrat University, Labuhan Ratu  "},
+        {lat: -5.3756191, lng: 105.2483519, info : "Akper Akbid Panca Bhakti, Jalan Zainal Abidin Pagar Alam  "},
+        {lat: -5.37725, lng: 105.2455969, info : "STIE Gentiaras, Gang Cengkeh, Gedong Meneng  "},
+        {lat: -5.3927846, lng: 105.2303958, info : "Universitas Saburai, Langkapura  "},
+        {lat: -5.4201099, lng: 105.2448731, info : "PGRI STKIP Bandar Lampung, Jalan Khairil Anwar  "},
+        {lat: -5.4168875, lng: 105.2679648, info : "Universitas Tulang Bawang, Jalan Gajah Mada  "},
+        {lat: -5.375913, lng: 105.248177, info : "ATRO Patriot Bangsa, Jalan Zainal Abidin Pagar Alam  "},
+        {lat: -5.3595923, lng: 105.2330066, info : "Akademi Kebidanan Adila, Jalan Soekarno - Hatta  "},
+        {lat: -5.413637, lng: 105.255978, info : "Amik Master Lampung, Tanjung Karang  "},
+        {lat: -5.3684163, lng: 105.2545969, info : "Sekolah teknik in der Nähe von Jalan Nusantara VIII, Labuhan Ratu "},
+        {lat: -5.4189042, lng: 105.2474335, info : "DCC Bandar Lampung, Jalan Cut Nyak Dien  "}
+      ]
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZB9ZJU2sial0Lcy25X2Rv0bti9HlFd1o&callback= ap"> </script> 
+<script>
+        var map = null;
+        var center = {lat: -5.4284046, lng:105.2006967};
+        var infowindow;
+
+        var config = {
+    apiKey: "AIzaSyAYSfDkw-rhnohOmIY484hxJ7xfa_dJwC4",
+    authDomain: "geojson-dc5b5.firebaseapp.com",
+    databaseURL: "https://geojson-dc5b5.firebaseio.com",
+    projectId: "geojson-dc5b5",
+    storageBucket: "geojson-dc5b5.appspot.com",
+    messagingSenderId: "350422065332"
+  };
+        firebase.initializeApp(config);
+
+        var db = firebase.database();
+        var dataRef = db.ref('bandar_lampung')
+
+        dataRef.on('value', showData, showError);
+        function showData(data){
+            //console.log(data.val());
+            map.data.addGeoJson(data.val()); 
+            map.data.setStyle({
+                fillColor : 'yellow',
+                strokeWeight: 0.2
+            });
+            map.data.addListener('click', function(event){
+                infoWindowContent = event.feature.getProperty('DESA')+"<br>"+event.feature.getProperty('KECAMATAN');
+                infowindow.setContent(infoWindowContent);
+                infowindow.setPosition(event.latLng);
+                infowindow.open(map);
+        
+            });
+        }
+        function showError(err){
+            console.log(err);
+        }
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 11,
+                center: center
+            });
+            infowindow = new google.maps.InfoWindow();
+        }
+    </script>
+<script src="src/markerclusterer.js"></script>
+</html>

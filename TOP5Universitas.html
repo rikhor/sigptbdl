@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="updatewarna.css"/>
+    <title>SIG Perguruan Tinggi di Kota Bandar Lampung</title>
+<head>
+    <link rel="shortcut icon" href="campus.png"/>
+    <body>
+            <h2 class="tengah"><img src="campus.png" alt="Foto" height="100" width="105"><br>
+            <font face="berlian sans fb">Sistem Informasi Geografis Perguruan Tinggi di Kota Bandar Lampung</font></h2>
+    </body>
+    <div class="konten"></div>
+    <ul class="navbar">
+		<center><b><li class="active"><a href="sigptbdl.html">HOME</a></li>
+		<li class="dropdown">
+			<a href="sebaran_perguruantinggi.html" class="btndown">SEBARAN PERGURUAN TINGGI</a></li>
+
+		<li class="dropdown">
+			<a href="TOP5Universitas.html" class="btndown">TOP 5 UNIVERSITAS</a></li>
+        
+		<li class="dropdown">
+            <a href="perguruantingginegeri.html" class="btndown">PERGURUAN TINGGI NEGERI</a></li>
+            
+        <li class="dropdown">
+            <a href="perguruantinggiswasta.html" class="btndown">PERGURUAN TINGGI SWASTA</a></li>
+
+            <li class="dropdown">
+                <a href="#" class="btndown">IMAGE OVERLAY</a>
+                <ul class="itemdown">
+                    <a href="unila.html">Universitas Lampung</a>
+                    <a href="uin.html">UIN Raden Intan Lampung</a>
+                    <a href="polinela.html">Polinela</a>
+                    <a href="poltekkes.html">Poltekkes</a>
+                    <a href="#">UPBJJ Universitas Terbuka</a>
+                    <a href="malahayati.html">Universitas Malahayati</a>
+                    <a href="mitra.html">Perguruan Tinggi Mitra Lampung</a>
+                    <a href="darmajaya.html">IBI Darmajaya</a>
+                    <a href="ubl.html">Universitas Bandar Lampung</a>
+                    <a href="muhammadiyah.html">Universitas Muhammadiyah</a>
+                    <a href="tekno.html">Perguruan Tinggi Teknokrat</a>
+                    <a href="#">Akper dan Akbdid Panca Bhakti</a>
+                    <a href="#">STIE Gentiaras</a>
+                    <a href="saburai.html">Universitas Saburai</a>
+                    <a href="stkippgri.html">STKIP PGRI</a>
+                    <a href="utb.html">Universitas Tulang Bawang</a>
+                    <a href="#">ATRO PATRIOT Bangsa Lampung</a>
+                    <a href="#">Akademi Kebidanan Adila</a>
+                    <a href="#">AMIK Master Lampung</a>
+                    <a href="#">Perguruan Tinggi Swasta Satu Nusa</a>
+                    <a href="dcc.html">Perguruan Tinggi Dian Cipta Cendikia</a>
+                </ul>
+
+        <li class="dropdown">
+            <a href="sigptbdl_direction.html" class="btndown">PETUNJUK JALAN</a></li>
+
+        <li class="dropdown">
+            <a href="kontak.html" class="btndown">KONTAK</a></li>
+
+        </center>
+        </ul></b>
+        </div> 
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
+<body>
+    <div class="mula">
+    <h6>TOP 5 Universitas di Kota Bandar Lampung</h6>
+    </div>
+	<div id="kotak">
+		<div id="map" style="width:100%;height:400px;"></div>
+		</form>
+	</div>   
+</body> 
+
+<script>
+
+function initialize(){
+	var mapOptions = {
+		zoom:9,
+		center: new google.maps.LatLng(-5.4284046, 105.2006967),
+	};
+	map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	
+	infoWindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow();
+	
+	var contentString;
+	infowindow.setContent(contentString);
+  
+	var marker = new google.maps.Marker();
+	marker.addListener('click',function(){
+		infowindow.open(map,marker);
+  ``});
+	marker.setMap(map);
+	
+	var infoWin = new google.maps.InfoWindow();
+    var labels = 'Bandar Lampung';
+        
+    var markers = locations.map(function(location, i) {
+        var marker = new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+        });
+		google.maps.event.addListener(marker, 'click', function(evt) {
+			infoWin.setContent(location.info);
+			infoWin.open(map, marker);
+		})
+		return marker;
+    }); 
+    
+	console.log(locations);
+    console.log(markers);
+
+    var markerCluster = new MarkerClusterer(map, markers,
+        {imagePath: 'images/m'});
+        
+    var d = markerCluster.distanceBetweenPoints_(markers[2].getPosition(),markers[4].getPosition());
+    console.log(markerCluster.getCalculator());
+
+	
+
+    }
+	
+	function showArrays(event) {
+		var vertices = this.getPath();
+		var contentString = '<b>' + this.name + '</b>';
+		infoWindow.setPosition(event.latLng);
+		infoWindow.setContent(contentString);
+		infoWindow.open(map);
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+     var locations = [
+     {lat: -5.3642974, lng: 105.2431929, info : '<center><img src="unila.png" width="100">'+"<h3>1. UNIVERSITAS LAMPUNG</h3><hr>"+"<h3>Jalan Prof. Dr. Sumantri Brojonegoro Nomor 1 Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 701609</h3>"+"<h3>Website: www.unila.ac.id</h3></center>"},
+        {lat: -5.3799364, lng: 105.3053161, info : '<center><img src="uinradenintan.jpg" width="100">'+"<h3>2. UNIVERSITAS ISLAM NEGERI RADEN INTAN</h3><hr>"+"<h3>Jalan Letkol H. Endro Suratmin, Sukarame</h3>"+"<h3>Nomor Telepon: (0721) 780887</h3>"+"<h3>Website: iainradenintan.ac.id</h3></center>"},
+        {lat: -5.3785417, lng: 105.2196441, info : '<center><img src="malahayati.png" width="100">'+"<h3>3. UNIVERSITAS MALAHAYATI</h3><hr>"+"<h3>Jalan Pramuka Nomor 27, Kemiling</h3>"+"<h3>omor Telepon: (0721) 273592</h3>"+"<h3>Website: www.malahayati.ac.id</h3></center>"},
+        {lat: -5.3795338, lng: 105.2495105, info : '<center><img src="ubl.jpg" width="100">'+"<h3>4. UNIVERSITAS BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 26 dan Nomor 89 Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 773847</h3>"+"<h3>Website: www.ubl.ac.id</h3></center>"},
+        {lat: -5.3775965, lng: 105.2525254, info : '<center><img src="muhammadiyah.jpg" width="100">'+"<h3>5. UNIVERSITAS MUHAMMADIYAH LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 14</h3>"+"<h3>Nomor Telepon: (0721) 701246</h3>"+"<h3>Website: www.umlampung.ac.id</h3></center>"},];
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbEOHbfYltz6DkuHjCc3yidWs0EEzWNTY&callback= ap"> </script> 
+<script>
+var db = firebase.database();
+        var dataRef = db.ref('pt_bandar_lampung')
+
+        dataRef.on('value', showData, showError);
+        function showData(data){
+            //console.log(data.val());
+            map.data.addGeoJson(data.val()); 
+            map.data.setStyle({
+                fillColor : 'yellow',
+                strokeWeight: 0.2
+            });
+            map.data.addListener('click', function(event){
+                infoWindowContent = event.feature.getProperty('DESA')+"<br>"+event.feature.getProperty('KECAMATAN');
+                infowindow.setContent(infoWindowContent);
+                infowindow.setPosition(event.latLng);
+                infowindow.open(map);
+        
+            });
+        }
+        function showError(err){
+            console.log(err);
+        }
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'),{
+                zoom: 11,
+                center: center
+            });
+            infowindow = new google.maps.InfoWindow();
+        }
+    </script>
+    <footer><center><h4>Copyright © 2018 | Riko Rahardiansyah-1657051028   Hafidza Anindita W-1617051110    Hartsa Hanifah-1617051029</h4></center></footer>
+<script src="src/markerclusterer.js"></script>
+</html>

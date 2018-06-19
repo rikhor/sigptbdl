@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" type="text/css" href="updatewarna.css"/>
+    <title>SIG Perguruan Tinggi di Kota Bandar Lampung</title>
+    <style>
+       
+        #map {
+          height: 100%;
+        }
+       
+        html, body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        .controls {
+          margin-top: 10px;
+          border: 1px solid transparent;
+          border-radius: 2px 0 0 2px;
+          box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          height: 32px;
+          outline: none;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+  
+        #pac-input {
+          background-color: #fff;
+          font-family: Roboto;
+          font-size: 15px;
+          font-weight: 300;
+          margin-left: 12px;
+          padding: 0 11px 0 13px;
+          text-overflow: ellipsis;
+          width: 300px;
+        }
+  
+        #pac-input:focus {
+          border-color: #4d90fe;
+        }
+  
+        .pac-container {
+          font-family: Roboto;
+        }
+  
+        #type-selector {
+          color: #fff;
+          background-color: #4d90fe;
+          padding: 5px 11px 0px 11px;
+        }
+  
+        #type-selector label {
+          font-family: Roboto;
+          font-size: 13px;
+          font-weight: 300;
+        }
+        #target {
+          width: 345px;
+        }
+      </style>
+<head>
+    <link rel="shortcut icon" href="campus.png"/>
+    <body>
+            <h2 class="tengah"><img src="campus.png" alt="Foto" height="100" width="105"><br>
+            <font face="berlian sans fb">Sistem Informasi Geografis Perguruan Tinggi di Kota Bandar Lampung</font></h2>      
+    </body>
+
+</head>
+    <div class="konten"></div>
+    <ul class="navbar">
+  <center><b><li class="active"><a href="sigptbdl.html">HOME</a></li>
+  <li class="dropdown">
+   <a href="sebaran_perguruantinggi.html" class="btndown">SEBARAN PERGURUAN TINGGI</a></li>
+
+  <li class="dropdown">
+   <a href="TOP5Universitas.html" class="btndown">TOP 5 UNIVERSITAS</a></li>
+        
+  <li class="dropdown">
+            <a href="perguruantingginegeri.html" class="btndown">PERGURUAN TINGGI NEGERI</a></li>
+            
+        <li class="dropdown">
+            <a href="perguruantinggiswasta.html" class="btndown">PERGURUAN TINGGI SWASTA</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="btndown">IMAGE OVERLAY</a>
+            <ul class="itemdown">
+                    <a href="lembahhijau.html">Universitas Lampung</a>
+                    <a href="puncakmas.html">UIN Raden Intan Lampung</a>
+                    <a href="muncaktirtayasa.html">Polinela</a>
+                    <a href="gardenia.html">Poltekkes</a>
+                    <a href="alamwawai.html">UPBJJ Universitas Terbuka</a>
+                    <a href="gitapersada.html">Universitas Malahayati</a>
+                    <a href="bumikedaton.html">Perguruan Tinggi Mitra Lampung</a>
+                    <a href="wiragarden.html">IBI Darmajaya</a>
+                    <a href="bukitbarisan.html">Universitas Bandar Lampung</a>
+                    <a href="gunungrajabasa.html">Universitas Muhammadiyah</a>
+                    <a href="waykambas.html">Perguruan Tinggi Teknokrat</a>
+                    <a href="palemindah.html">Akper dan Akbdid Panca Bhakti</a>
+                    <a href="bukitblt.html">STIE Gentiaras</a>
+                    <a href="gedungbatin.html">Universitas Saburai</a>
+                    <a href="tirtayasa.html">STKIP PGRI</a>
+                    <a href="dutawisata.html">Universitas Tulang Bawang</a>
+                    <a href="jukungkrui.html">ATRO PATRIOT Bangsa Lampung</a>
+                    <a href="walurkrui.html">Akademi Kebidanan Adila</a>
+                    <a href="danauranau.html">AMIK Master Lampung</a>
+                    <a href="legundi.html">Perguruan Tinggi Swasta Satu Nusa</a>
+                    <a href="siluncal.html">Perguruan Tinggi Dian Cipta Cendikia</a>
+            </ul>
+
+        <li class="dropdown">
+            <a href="sigptbdl_direction.html" class="btndown">PETUNJUK JALAN</a></li>
+
+        <li class="dropdown">
+            <a href="kontak.html" class="btndown">KONTAK</a></li>
+
+        </center>
+        </ul></b>
+        </div> 
+        
+
+
+<body>
+    <div class="mula">
+    <h6>Terdapat 21 Perguruan Tinggi di Kota Bandar Lampung</h6>
+    </div>
+
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+        <div id="map"></div>
+        <script>
+            function initMap() {
+
+var map = new google.maps.Map(document.getElementById('map'), {zoom: 9,center: {lat: -5.397836, lng: 105.266422}
+});
+var infoWin = new google.maps.InfoWindow();
+// Add some markers to the map.
+// Note: The code uses the JavaScript Array.prototype.map() method to
+// create an array of markers based on a given "locations" array.
+// The map() method here has nothing to do with the Google Maps API.
+var markers = locations.map(function(location, i) {
+  var marker = new google.maps.Marker({
+    position: location
+  });
+  google.maps.event.addListener(marker, 'click', function(evt) {
+    infoWin.setContent(location.info);
+    infoWin.open(map, marker);
+  })
+  return marker;
+});
+
+// Add a marker clusterer to manage the markers.
+var markerCluster = new MarkerClusterer(map, markers, {
+  imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+});
+
+}
+var locations = [
+{lat: -5.3642974, lng: 105.2431929, info : "<center><h3>UNIVERSITAS LAMPUNG</h3><hr>"+"<h3>Jalan Prof. Dr. Sumantri Brojonegoro Nomor 1 Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 701609</h3>"+"<h3>Website: www.unila.ac.id</h3></center>"},
+      {lat: -5.3799364, lng: 105.3053161, info : "<center><h3>UNIVERSITAS ISLAM NEGERI RADEN INTAN</h3><hr>"+"<h3>Jalan Letkol H. Endro Suratmin, Sukarame</h3>"+"<h3>Nomor Telepon: (0721) 780887</h3>"+"<h3>Website: iainradenintan.ac.id</h3></center>"},
+      {lat: -5.358566, lng: 105.232951, info : "<center><h3>POLITEKNIK NEGERI LAMPUNG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 10 (By Pass), Raja Basa</h3>"+"<h3>Nomor Telepon: (0721) 703-995</h3>"+"<h3>Website: www.polinela.ac.id</h3></center>"},
+      {lat: -5.3606763, lng: 105.2275111, info : "<center><h3>POLTEKKES TANJUNG KARANG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 1 dan 6, Raja Basa</h3>"+"<h3>Nomor Telepon: (0721) 783852</h3>"+"<h3>Website: www.poltekkes-tjk.ac.id</h3></center>"},
+      {lat: -5.3598389, lng: 105.2340358, info : "<center><h3>UPBJJ UNIVERSITAS TERBUKA BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 108B Rajabasa, Bandar Lampung 35144</h3>"+"<h3>Nomor Telepon: (0721) 704772, (0721) 773736</h3>"+"<h3>Website: lampung.ut.ac.id</h3></center>"},
+      {lat: -5.3810814, lng: 105.2187678, info : "<center><h3>UNIVERSITAS MALAHAYATI</h3><hr>"+"<h3>Jalan Pramuka Nomor 27, Kemiling</h3>"+"<h3>omor Telepon: (0721) 273592</h3>"+"<h3>Website: www.malahayati.ac.id</h3></center>"},
+      {lat: -5.372963, lng: 105.2413768, info : "<center><h3>PERGURUAN TINGGI MITRA BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 7, Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 701418</h3>"+"<h3>Website: www.umitra.ac.id</h3></center>"},
+      {lat: -5.3826676, lng: 105.2514539, info : "<center><h3>IBI DARMAJAYA</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 93, Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 787214</h3>"+"<h3>Website: www.darmajaya.ac.id</h3></center>"},
+      {lat: -5.378792, lng: 105.252171, info : "<center><h3>UNIVERSITAS BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 26 dan Nomor 89 Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 773847</h3>"+"<h3>Website: www.ubl.ac.id</h3></center>"},
+      {lat: -5.3784948, lng: 105.2522424, info : "<center><h3>UNIVERSITAS MUHAMMADIYAH LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 14</h3>"+"<h3>Nomor Telepon: (0721) 701246</h3>"+"<h3>Website: www.umlampung.ac.id</h3></center>"},
+      {lat: -5.3822669, lng: 105.2578279, info : "<center><h3>PERGURUAN TINGGI TEKNOKRAT</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 9-11, Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 702022</h3>"+"<h3>Website: wwww.teknokrat.ac.id</h3></center>"},
+      {lat: -5.3756191, lng: 105.2483519, info : "<center><h3>AKPER DAN AKBID PANCA BHAKTI</h3><hr>"+"<h3>Jalan ZA. Pagar Alam Nomor 14, Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 786864</h3>"+"<h3>Website: www.pancabhakti.ac.id</h3></center>"},
+      {lat: -5.37725, lng: 105.2455969, info : "<center><h3>STIE GENTIARAS</h3><hr>"+"<h3>Jalan Purnawirawan Nomor 14, Gedung Meneng</h3>"+"<h3>Nomor Telepon: (0721) 781403</h3>"+"<h3>Website: www.stiegentiaras.ac.id</h3></center>"},
+      {lat: -5.3927846, lng: 105.2303958, info : "<center><h3>UNIVERSITAS SABURAI</h3><hr>"+"<h3>Jalan Imam Bonjol Nomor 486, Langkapura</h3>"+"<h3>Nomor Telepon: (0721) 265734</h3>"+"<h3>Website: www.saburai.ac.id</h3></center>"},
+      {lat: -5.4200428, lng: 105.2451946, info : "<center><h3>STKIP PGRI BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan Chairil Anwar Nomor 79, Durian Payung</h3>"+"<h3>Nomor Telepon: (0721) 259166</h3>"+"<h3>Website: www.stkippgribl.ac.id</h3></center>"},
+      {lat: -5.4168875, lng: 105.2679648, info : "<center><h3>UNIVERSITAS TULANG BAWANG</h3><hr>"+"<h3>Jalan Gajah Mada Nomor 34 Bandar Lampung 35121</h3>"+"<h3>Nomor Telepon: (0721) 252686</h3>"+"<h3>Website: www.utb.ac.id</h3></center>"},
+      {lat: -5.375913, lng: 105.248177, info : "<center><h3>ATRO PATRIOT BANGSA LAMPUNG</h3><hr>"+"<h3>Jalan Zainal Abidin Pagar Alam Nomor 12D, Gedong Meneng, Rajabasa</h3>"+"<h3>Nomor Telepon: (0721) 709287</h3></center>"},
+      {lat: -5.3595923, lng: 105.2330066, info : "<center><h3>AKADEMI KEBIDANAN ADILA</h3><hr>"+"<h3>Jalan Soekarno Hatta, Bypass, Rajabasa</h3>"+"<h3>Nomor Telepon: (0721) 784370</h3>"+"<h3>Website: www.akbid.adila.ac.id</h3></center>"},
+      {lat: -5.413637, lng: 105.255978, info : "<center><h3>AMIK MASTER LAMPUNG</h3><hr>"+"<h3>Jalan Cut Nyak Dien, Tanjung Karang Pusat</h3>"+"<h3>Nomor Telepon: (0721) 259833</h3>"+"<h3>Website: www.master.ac.id</h3></center>"},
+      {lat: -5.3706861, lng: 105.2360201, info : "<center><h3>PERGURUAN TINGGI SWASTA SATU NUSA</h3><hr>"+"<h3>Jalan ZA. Pagar Alam Nomor 17 A, Rajabasa Bandar Lampung</h3>"+"<h3>Nomor Telepon (0721)700123</h3>"+"<h3>Website: info@ptssatunusa.ac.id<h3></center>"},
+      {lat: -5.4470014, lng: 105.2655726, info : "<center><h3>PERGURUAN TINGGI DIAN CIPTA CENDEKIA</h3><hr>"+"<h3></h3>"+"<h3>Website: www.dcc.ac.id</h3></center>"},];
+      
+
+
+google.maps.event.addDomListener(window, "load", initMap);
+          function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -5.4284046, lng:  105.2006967},
+              zoom: 10,
+              mapTypeId: 'roadmap'
+            });
+    
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+    
+            map.addListener('bounds_changed', function() {
+              searchBox.setBounds(map.getBounds());
+            });
+    
+            var markers = [];
+           
+            searchBox.addListener('places_changed', function() {
+              var places = searchBox.getPlaces();
+    
+              if (places.length == 0) {
+                return;
+              }
+    
+              markers.forEach(function(marker) {
+                marker.setMap(null);
+              });
+              markers = [];
+    
+
+              var bounds = new google.maps.LatLngBounds();
+              places.forEach(function(place) {
+                if (!place.geometry) {
+                  console.log("Returned place contains no geometry");
+                  return;
+                }
+                var icon = {
+                  url: place.icon,
+                  size: new google.maps.Size(71, 71),
+                  origin: new google.maps.Point(0, 0),
+                  anchor: new google.maps.Point(17, 34),
+                  scaledSize: new google.maps.Size(25, 25)
+                };
+    
+                markers.push(new google.maps.Marker({
+                  map: map,
+                  icon: icon,
+                  title: place.name,
+                  position: place.geometry.location
+                }));
+    
+                if (place.geometry.viewport) {
+                  bounds.union(place.geometry.viewport);
+                } else {
+                  bounds.extend(place.geometry.location);
+                }
+              });
+              map.fitBounds(bounds);
+            });
+          }
+    
+        </script>
+    </html>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initAutocomplete" async defer></script>
+
+    <script async defer 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2-gCXyFtSC55MwOWu4PkmB8pXgQQu5yA&callback=initMap"></script>
+    <footer><center><h4>Copyright © 2018 | Riko Rahardiansyah-1657051028   Hafidza Anindita W-1617051110    Hartsa Hanifah-1617051029</h4></center></footer>
+<script src="src/markerclusterer.js"></script>
+</html>

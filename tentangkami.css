@@ -1,0 +1,17 @@
+body{
+    background: #18BC9C;
+}
+h5{
+    color: #2C3E50;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+div.menu{
+    background: #fff;
+    width: 500px;
+    margin: 10px auto 5px;
+    padding: 20px 40px;
+    border-radius: 6px;
+    overflow: hidden;
+}

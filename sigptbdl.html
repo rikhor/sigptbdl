@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SIG Portal-Perguruan Tinggi di Kota Bandar Lampung</title>
+    <link rel="shortcut icon" href="campus.png"/>
+    
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <link href="css/freelancer.min.css" rel="stylesheet">
+
+  </head>
+
+  <style>
+    #map {
+        background-color: grey;
+        width: 100%;
+        height: 400px;
+    }  
+  </style>
+
+  <body id="page-top">
+
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SELAMAT DATANG</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#pt">Perguruan Tinggi di Bandar Lampung</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#deskripsi">Deskripsi</a>
+            </li>
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/campus.png" alt="">
+        <h1 class="text-uppercase mb-0" href="sebaran_perguruantinggi.html">SIG-PT-BDL</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Sistem Informasi Geografis Perguruan Tinggi di Kota Bandar Lampung</h2>
+      </div>
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="sebaran_perguruantinggi.html">
+          <i class="fa fa-download mr-2"></i>
+          Buka!
+        </a>
+      </div>
+    </header>
+
+    <section class="pt" id="pt">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Perguruan Tinggi di Bandar Lampung</h2>
+        <hr class="star-dark mb-5">
+      <div id="map"></div>
+      <script> 
+function initMap() {
+
+var map = new google.maps.Map(document.getElementById('map'), {zoom: 9,center: {lat: -5.397836, lng: 105.266422}
+});
+var infoWin = new google.maps.InfoWindow();
+// Add some markers to the map.
+// Note: The code uses the JavaScript Array.prototype.map() method to
+// create an array of markers based on a given "locations" array.
+// The map() method here has nothing to do with the Google Maps API.
+var markers = locations.map(function(location, i) {
+  var marker = new google.maps.Marker({
+    position: location
+  });
+  google.maps.event.addListener(marker, 'click', function(evt) {
+    infoWin.setContent(location.info);
+    infoWin.open(map, marker);
+  })
+  return marker;
+});
+
+// Add a marker clusterer to manage the markers.
+var markerCluster = new MarkerClusterer(map, markers, {
+  imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+});
+
+}
+var locations = [
+{lat: -5.3642974, lng: 105.2431929, info : "<center><h3>UNIVERSITAS LAMPUNG</h3><hr>"+"<h3>Jalan Prof. Dr. Sumantri Brojonegoro Nomor 1 Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 701609</h3>"+"<h3><a href =https://www.unila.ac.id/>www.unila.ac.id/</h3></center>"},
+      {lat: -5.3799364, lng: 105.3053161, info : "<center><h3>UNIVERSITAS ISLAM NEGERI RADEN INTAN</h3><hr>"+"<h3>Jalan Letkol H. Endro Suratmin, Sukarame</h3>"+"<h3>Nomor Telepon: (0721) 780887</h3>"+"<h3>Website: iainradenintan.ac.id</h3></center>"},
+      {lat: -5.358566, lng: 105.232951, info : "<center><h3>POLITEKNIK NEGERI LAMPUNG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 10 (By Pass), Raja Basa</h3>"+"<h3>Nomor Telepon: (0721) 703-995</h3>"+"<h3>Website: www.polinela.ac.id</h3></center>"},
+      {lat: -5.3606763, lng: 105.2275111, info : "<center><h3>POLTEKKES TANJUNG KARANG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 1 dan 6, Raja Basa</h3>"+"<h3>Nomor Telepon: (0721) 783852</h3>"+"<h3>Website: www.poltekkes-tjk.ac.id</h3></center>"},
+      {lat: -5.3598389, lng: 105.2340358, info : "<center><h3>UPBJJ UNIVERSITAS TERBUKA BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan Soekarno Hatta Nomor 108B Rajabasa, Bandar Lampung 35144</h3>"+"<h3>Nomor Telepon: (0721) 704772, (0721) 773736</h3>"+"<h3>Website: lampung.ut.ac.id</h3></center>"},
+      {lat: -5.3810814, lng: 105.2187678, info : "<center><h3>UNIVERSITAS MALAHAYATI</h3><hr>"+"<h3>Jalan Pramuka Nomor 27, Kemiling</h3>"+"<h3>omor Telepon: (0721) 273592</h3>"+"<h3>Website: www.malahayati.ac.id</h3></center>"},
+      {lat: -5.372963, lng: 105.2413768, info : "<center><h3>PERGURUAN TINGGI MITRA BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 7, Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 701418</h3>"+"<h3>Website: www.umitra.ac.id</h3></center>"},
+      {lat: -5.3826676, lng: 105.2514539, info : "<center><h3>IBI DARMAJAYA</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 93, Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 787214</h3>"+"<h3>Website: www.darmajaya.ac.id</h3></center>"},
+      {lat: -5.378792, lng: 105.252171, info : "<center><h3>UNIVERSITAS BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 26 dan Nomor 89 Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 773847</h3>"+"<h3>Website: www.ubl.ac.id</h3></center>"},
+      {lat: -5.3784948, lng: 105.2522424, info : "<center><h3>UNIVERSITAS MUHAMMADIYAH LAMPUNG</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 14</h3>"+"<h3>Nomor Telepon: (0721) 701246</h3>"+"<h3>Website: www.umlampung.ac.id</h3></center>"},
+      {lat: -5.3822669, lng: 105.2578279, info : "<center><h3>PERGURUAN TINGGI TEKNOKRAT</h3><hr>"+"<h3>Jalan ZA Pagar Alam Nomor 9-11, Labuhan Ratu</h3>"+"<h3>Nomor Telepon: (0721) 702022</h3>"+"<h3>Website: wwww.teknokrat.ac.id</h3></center>"},
+      {lat: -5.3756191, lng: 105.2483519, info : "<center><h3>AKPER DAN AKBID PANCA BHAKTI</h3><hr>"+"<h3>Jalan ZA. Pagar Alam Nomor 14, Gedong Meneng</h3>"+"<h3>Nomor Telepon: (0721) 786864</h3>"+"<h3>Website: www.pancabhakti.ac.id</h3></center>"},
+      {lat: -5.37725, lng: 105.2455969, info : "<center><h3>STIE GENTIARAS</h3><hr>"+"<h3>Jalan Purnawirawan Nomor 14, Gedung Meneng</h3>"+"<h3>Nomor Telepon: (0721) 781403</h3>"+"<h3>Website: www.stiegentiaras.ac.id</h3></center>"},
+      {lat: -5.3927846, lng: 105.2303958, info : "<center><h3>UNIVERSITAS SABURAI</h3><hr>"+"<h3>Jalan Imam Bonjol Nomor 486, Langkapura</h3>"+"<h3>Nomor Telepon: (0721) 265734</h3>"+"<h3>Website: www.saburai.ac.id</h3></center>"},
+      {lat: -5.4200428, lng: 105.2451946, info : "<center><h3>STKIP PGRI BANDAR LAMPUNG</h3><hr>"+"<h3>Jalan Chairil Anwar Nomor 79, Durian Payung</h3>"+"<h3>Nomor Telepon: (0721) 259166</h3>"+"<h3>Website: www.stkippgribl.ac.id</h3></center>"},
+      {lat: -5.4168875, lng: 105.2679648, info : "<center><h3>UNIVERSITAS TULANG BAWANG</h3><hr>"+"<h3>Jalan Gajah Mada Nomor 34 Bandar Lampung 35121</h3>"+"<h3>Nomor Telepon: (0721) 252686</h3>"+"<h3>Website: www.utb.ac.id</h3></center>"},
+      {lat: -5.375913, lng: 105.248177, info : "<center><h3>ATRO PATRIOT BANGSA LAMPUNG</h3><hr>"+"<h3>Jalan Zainal Abidin Pagar Alam Nomor 12D, Gedong Meneng, Rajabasa</h3>"+"<h3>Nomor Telepon: (0721) 709287</h3></center>"},
+      {lat: -5.3595923, lng: 105.2330066, info : "<center><h3>AKADEMI KEBIDANAN ADILA</h3><hr>"+"<h3>Jalan Soekarno Hatta, Bypass, Rajabasa</h3>"+"<h3>Nomor Telepon: (0721) 784370</h3>"+"<h3>Website: www.akbid.adila.ac.id</h3></center>"},
+      {lat: -5.413637, lng: 105.255978, info : "<center><h3>AMIK MASTER LAMPUNG</h3><hr>"+"<h3>Jalan Cut Nyak Dien, Tanjung Karang Pusat</h3>"+"<h3>Nomor Telepon: (0721) 259833</h3>"+"<h3>Website: www.master.ac.id</h3></center>"},
+      {lat: -5.3706861, lng: 105.2360201, info : "<center><h3>PERGURUAN TINGGI SWASTA SATU NUSA</h3><hr>"+"<h3>Jalan ZA. Pagar Alam Nomor 17 A, Rajabasa Bandar Lampung</h3>"+"<h3>Nomor Telepon (0721)700123</h3>"+"<h3>Website: info@ptssatunusa.ac.id<h3></center>"},
+      {lat: -5.4470014, lng: 105.2655726, info : "<center><h3>PERGURUAN TINGGI DIAN CIPTA CENDEKIA</h3><hr>"+"<h3></h3>"+"<h3>Website: www.dcc.ac.id</h3></center>"},];
+      
+
+
+google.maps.event.addDomListener(window, "load", initMap);
+
+      </script> 
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbEOHbfYltz6DkuHjCc3yidWs0EEzWNTY&callback=initMap"> 
+      </script>
+      <script src="src/markerclusterer.js"></script>
+    </section>
+
+    <section class="bg-primary text-white mb-0" id="deskripsi">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-white">Deskripsi</h2>
+        <hr class="star-light mb-5">
+        <div class="row">
+          <div class="col-lg-4 ml-auto">
+            <p class="lead">SIG-PT-BDL singkatan dari Sistem Informasi Geografi Perguruan Tinggi di kota Bandar Lampung.</p>
+          </div>
+          <div class="col-lg-4 mr-auto">
+            <p class="lead">Berisi informasi terkait letak dan sebaran dari  perguruan tinggi di kota Bandar Lampung</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; SIG 2018 | Riko Rahardiansyah 1657051028 - Hafidza Anindita W 1617051110 - Hartsa Hanifah 1617051029</small>
+      </div>
+    </div>
+
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <script src="js/freelancer.min.js"></script>
+
+  </body>
+
+</html>

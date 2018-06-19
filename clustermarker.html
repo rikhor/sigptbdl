@@ -1,16 +1,11 @@
 <html>
     <head>
         <title>Sistem Informasi Geografis Pemetaan Perguruan Tinggi di Kota Bandar Lampung</title>
-        <body>
-            <h1><center> </center><h1>
-                <h3><center>Sistem Informasi Geografis</center></h3>
-                    <h3><center>Pemetaan Perguruan Tinggi di Kota Bandar Lampung</center></h3>
-        </body>
         <style>
             #map {
                 background-color: grey;
                 width: 100%;
-                height: 700px;
+                height: 400px;
             }
         </style>
     </head>
@@ -45,16 +40,16 @@ function initMap() {
 
 }
 var locations = [
-        {lat: -5.3645458, lng: 105.2433216, info : "Universitas Lampung, Jalan Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng"},
-        {lat: -5.3818398, lng: 105.3105262, info : "UIN Radin Intan Bandar Lampung, Jalan Letkol H Endro Suratmin"},
-        {lat: -5.358378, lng: 105.3134384, info : "Institut Teknologi Sumatera, Jalan Terusan Ryacudu"},
-        {lat: -5.358532, lng: 105.230266, info : "Politeknik Negeri Lampung, Jalan Soekarno Hatta"},
-        {lat: -5.358532, lng: 105.2302552, info : "Poltekkes Tanjung Karang, Jalan Soekarno Hatta"},
-        {lat: -5.3598389, lng: 105.2318418, info : "UPBJJ-UT Bandar Lampung , Jalan soekarno Hatta"},
-        {lat: -5.3785417, lng: 105.2196441, info : "Universitas Malahayati, Jalan Pramuka "},
-        {lat: -5.372963, lng: 105.2391828, info : "Perguruan Tinggi Mitra Lampung, Jalan ZA Pagaralam "},
-        {lat: -5.3774046, lng: 105.2474722, info : "Institut Informatika Dan Bisnis Darmajaya, Jalan Zainal Abidin Pagar Alam "},
-        {lat: -5.3795338, lng: 105.2495105, info : "Universitas Bandar Lampung, Jalan Zainal Abidin Pagar Alam "},
+        {lat: -5.3645458, lng: 105.2433216, info : "Universitas Lampung,Jl Prof Dr Sumantri Brojonegoro No 1 Gedong Meneng"},
+        {lat: -5.3818398, lng: 105.3105262, info : "UIN Radin Intan Jl Letkol H Endro Suratmin"},
+        {lat: -5.358378, lng: 105.3134384, info : "Institut Teknologi Sumatera,Jl Terusan Ryacudu"},
+        {lat: -5.358532, lng: 105.230266, info : "Politeknik Negeri Lampung,Jl Soekarno Hatta"},
+        {lat: -5.358532, lng: 105.2302552, info : "Poltekkes Tanjung Karang,Jl Soekarno Hatta"},
+        {lat: -5.3598389, lng: 105.2318418, info : "UPBJJ-UT Bandar Lampung ,JL soekarno Hatta"},
+        {lat: -5.3785417, lng: 105.2196441, info : "Universitas Malahayati,JL Pramuka "},
+        {lat: -5.372963, lng: 105.2391828, info : "Perguruan Tinggi Mitra Lampung,Jl ZA Pagaralam "},
+        {lat: -5.3774046, lng: 105.2474722, info : "Institut Informatika Dan Bisnis Darmajaya,Jl Zainal Abidin Pagar Alam "},
+        {lat: -5.3795338, lng: 105.2495105, info : "Universitas Bandar Lampung,Jl Zainal Abidin Pagar Alam "},
         {lat: -5.3775965, lng: 105.2525254, info : "Universitas Muhammadiyah Lampung, Jalan Zainal Abidin Pagar Alam "},
         {lat: -5.382463, lng: 105.2566627, info : "Teknokrat University, Labuhan Ratu  "},
         {lat: -5.3756191, lng: 105.2483519, info : "Akper Akbid Panca Bhakti, Jalan Zainal Abidin Pagar Alam  "},
@@ -65,7 +60,7 @@ var locations = [
         {lat: -5.375913, lng: 105.248177, info : "ATRO Patriot Bangsa, Jalan Zainal Abidin Pagar Alam  "},
         {lat: -5.3595923, lng: 105.2330066, info : "Akademi Kebidanan Adila, Jalan Soekarno - Hatta  "},
         {lat: -5.413637, lng: 105.255978, info : "Amik Master Lampung, Tanjung Karang  "},
-        {lat: -5.3684163, lng: 105.2545969, info : "Sekolah teknik in der Nähe von Jalan Nusantara VIII, Labuhan Ratu "},
+        {lat: -5.3684163, lng: 105.2545969, info : "sekolah teknik in der Nähe von Jalan Nusantara VIII, Labuhan Ratu "},
         {lat: -5.4189042, lng: 105.2474335, info : "DCC Bandar Lampung, Jalan Cut Nyak Dien  "},];
         
 
@@ -78,5 +73,4 @@ google.maps.event.addDomListener(window, "load", initMap);
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2-gCXyFtSC55MwOWu4PkmB8pXgQQu5yA&callback=initMap"></script>
 <script src="src/markerclusterer.js">
 </script>
-            <h5><i>Developed by : </i> <b> Riko Rahardiansyah  | Hafidza Anindita W | Hartsa Hanifah </b> </h5>
 </html>
