@@ -1,0 +1,166 @@
+body{
+    background:  #18BC9C;
+    
+}
+h2{
+    color: #FFFAF0;
+    font-size: 35px;
+    margin-top: 1px;
+    font-family: sans-serif;
+}
+h3{
+    font-size: 18px;
+    font-family: sans-serif;
+}
+h4{
+    color: #fffaf0;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+h5{
+    color: #ffff;
+    font-size: 25px;
+}
+h6{
+    color: #FFFAF0;
+    font-size: 20px;
+    margin-top: 1px;
+    font-family: sans-serif;
+}
+p{
+    color: #FFFAF0;
+    font-size: 25px;
+    margin-top: 1px;
+}
+div.konten{
+    background: #296d7c;
+    width: 1323px;
+    padding: 0px 5px;
+    border-radius: 0px;
+    overflow: hidden;
+    margin: 0;
+}
+.tengah{
+    text-align: center;
+}
+#map{
+    height: 350px;
+    width: 100%;
+
+    }
+
+ul.navbar{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    width:100%;
+    background-color:#2C3E50;
+    font-family:sans-serif;
+    border:0px solid #2C3E50;
+    overflow:hidden;
+    font-family:'Century Gothic';
+    font-size: 15px;
+}
+ul.navbar li{
+    float: center;
+}
+ul.navbar li a, .btndown{
+    display:inline-block;
+    text-decoration:none;
+    color:#fff;
+    padding:14px 16px;
+    text-align:center;
+    z-index:9999;
+}
+ul.navbar li a:hover, .dropdown:hover .btndown{
+    background-color:#359946;
+    z-index:9999;
+    }
+ul.navbar li.active a{
+    background:#359946;
+    color:#fff;
+}
+ul.navbar li.right{
+    float:right;
+}
+ul.navbar li.dropdown{
+    display:inline-block;
+    z-index:9999;
+}
+.itemdown{
+    display:none;
+    position:absolute;
+    background-color:#2C3E50;
+    margin:0;
+    padding:0;
+    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+    list-style-type:none;
+    z-index:9999;
+  }
+  .itemdown li{
+    clear:both;
+    float:none;
+    z-index:9999;
+  }
+  .itemdown li a{
+    color:#18BC9C;
+    padding:12px 86px;
+    display:inline-block;
+    min-width: 100px;
+    text-decoration:none;
+    z-index:9999;
+  }
+.itemdown li a:hover{
+    background-color:#f1f1f1;
+}
+.dropdown:hover .itemdown{
+    display:block;
+    z-index:9999;
+}
+form {
+    width:300px;
+    margin:50px auto;
+}
+.search {
+    padding:10px 15px;
+    background:#fff;
+    border:0px solid #dbdbdb;
+}
+.misal{
+    background: #296d7c;
+    width: 500px;
+    padding: 20px 5px;
+    border-radius: 0px;
+    overflow: hidden;
+    margin: 0;
+}
+.mula{
+    right: 25%;
+    height: 50px;
+    z-index: 5;
+    background-color: darkcyan;
+    padding: 5px;
+    border: 0px solid #999;
+    text-align: center;
+    line-height: 50px;
+    padding-right: 10px;
+}
+.button {
+    position:relative;
+    padding:8.5px 15px;
+    left:-8px;
+    border:2px solid #53bd84;
+    background-color:#53bd84;
+    color:#fafafa;
+}
+.container{
+    background-color: #2C3E50;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+.box{
+    background-color: darkcyan;
+    color: #fff;
+    font-size: 15px;
+}
