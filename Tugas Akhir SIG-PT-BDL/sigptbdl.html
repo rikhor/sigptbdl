@@ -1,0 +1,240 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SIG Portal-Perguruan Tinggi di Kota Bandar Lampung</title>
+    <link rel="shortcut icon" href="campus.png"/>
+    
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <link href="css/freelancer.min.css" rel="stylesheet">
+    </head>
+        <style>
+            #map {
+                background-color: gray;
+                width: 100%;
+                height: 400px;
+            }
+#legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+
+        </style>
+<body id="page-top">
+
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">SELAMAT DATANG</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#pt">Perguruan Tinggi di Bandar Lampung</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#deskripsi">Deskripsi</a>
+            </li>
+          </ul>
+        
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="img/campus.png" alt="">
+        <h1 class="text-uppercase mb-0" href="sebaranperguruantinggi.html">SIG-PT-BDL</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Sistem Informasi Geografis Perguruan Tinggi di Kota Bandar Lampung</h2>
+      </div>
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-light" href="sebaranperguruantinggi.html">
+          <i class="fa fa-download mr-2"></i>
+          Buka!
+        </a>
+      </div>
+    </header>
+
+    <section class="pt" id="pt">
+      <div class="container">
+        <h2 class="text-center text-uppercase text-secondary mb-0">Perguruan Tinggi di Bandar Lampung</h2>
+        <hr class="star-dark mb-5">
+                <div id="map"></div>
+                <div id="legend"><h3>Legend</h3></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: new google.maps.LatLng(-5.397836, 105.266422),
+          mapTypeId: 'roadmap'
+        });
+        var icons = {
+                negeri: {
+                    name: 'PTN',
+                    icon: 'https://png.icons8.com/metro/80/2C8D6C/graduation-cap.png'
+                },
+                swasta: {
+                    name: 'PTS',
+                    icon: 'https://png.icons8.com/ios-glyphs/50/e74c3c/graduation-cap.png'
+                },
+        };
+
+            var features = [
+            {
+    position: new google.maps.LatLng(-5.3642974,105.2431929),
+    type: 'negeri'
+},{
+    position: new google.maps.LatLng(-5.3799364,105.3053161),
+    type: 'negeri'
+},{
+    position: new google.maps.LatLng(-5.358566,105.232951),
+    type: 'negeri'
+},{
+    position: new google.maps.LatLng(-5.3606763,105.2275111),
+    type: 'negeri'
+},{
+    position: new google.maps.LatLng(-5.3598389,105.2340358),
+    type: 'negeri'
+},{
+    position: new google.maps.LatLng(-5.3810814,105.2187678),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.372963,105.2413768),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3826676,105.2514539),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.378792,105.252171),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3784948,105.2522424),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3822669,105.2578279),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3756191,105.2483519),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.37725,105.2455969),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3927846,105.2303958),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.4200428,105.2451946),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.4168875,105.2679648),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.375913,105.248177),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3595923,105.2330066),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.413637,105.255978),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.3706861,105.2360201),
+    type: 'swasta'
+},{
+    position: new google.maps.LatLng(-5.4470014,105.2655726),
+    type: 'swasta'
+},
+];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+
+        var legend = document.getElementById('legend');
+        for (var key in icons) {
+          var type = icons[key];
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+      }
+    </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbEOHbfYltz6DkuHjCc3yidWs0EEzWNTY&callback=initMap"> 
+</script>
+</section>
+
+<section class="bg-primary text-white mb-0" id="deskripsi">
+  <div class="container">
+    <h2 class="text-center text-uppercase text-white">Deskripsi</h2>
+    <hr class="star-light mb-5">
+    <div class="row">
+      <div class="col-lg-4 ml-auto">
+        <p class="lead">SIG-PT-BDL singkatan dari Sistem Informasi Geografi Perguruan Tinggi di kota Bandar Lampung.</p>
+      </div>
+      <div class="col-lg-4 mr-auto">
+        <p class="lead">Berisi informasi terkait letak dan sebaran dari  perguruan tinggi di kota Bandar Lampung</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="copyright py-4 text-center text-white">
+  <div class="container">
+    <small>Copyright &copy; SIG 2018 | Riko Rahardiansyah 1657051028 - Hafidza Anindita W 1617051110 - Hartsa Hanifah 1617051029</small>
+  </div>
+</div>
+
+<div class="scroll-to-top d-lg-none position-fixed ">
+  <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+</div>
+
+
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+<script src="js/freelancer.min.js"></script>
+
+</body>
+</html>
